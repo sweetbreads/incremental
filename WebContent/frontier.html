@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="scripts/event.js"></script>
+<script type="text/javascript" src="scripts/town.js"></script>
+</head>
+<body>
+
+<p id="status">This is a test.</p>
+<p id="events">Event test.</p>
+<p id="resources">Resource test.</p>
+<script type="text/javascript">
+function debugAction() {
+	document.getElementById("events").innterHTML = "here I am!";
+}
+try
+{
+	event.init();
+	event.add(10, town.update);
+	event.next();
+	event.next();
+}
+catch(err)
+{
+	txt="There was an error on this page.\n\n";
+	txt+="Error description: " + err.message + "\n\n";
+	txt+="Click OK to continue.\n\n";
+	alert(txt);
+}
+</script>
+
+</body>
+</html>
