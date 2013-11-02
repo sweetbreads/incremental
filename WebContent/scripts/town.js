@@ -4,43 +4,46 @@
 
 var town = {
 		
-		netWorth : 0,
-		food : 0,
-		herbs : 0,
-		wood : 0,
-		stone : 0,
-		
 		init : function() {
-			netWorth = 0;
-			food = 0;
-			herbs = 0;
-			wood = 0;
-			stone = 0;
+			resources.init();
+			events.add(1, town.update);
 		},
 		
 		update : function() {
-			town.incrementalUpdate();
-			town.displayResources();
-			event.add(1, town.update);
+			resources.update("food", 3.5);
+			resources.update("herbs", 0.1);
+			resources.update("wood", 2.0);
+			resources.display();
+			events.add(1, town.update);
 		},
 		
-		incrementalUpdate : function() {
-			food += 4;
-			herbs += 2;
-			wood += 3;
-			stone += 1;
+		sellAction : function(transaction) {
+			resources.update(transaction.resource, -1 * transaction.amount);
+			resources.update("netWorth", transaction.value);
+			resources.display();
 		},
 		
-		displayResources : function() {
-			contents = "";
-			contents += "<table border=\"0\">";
-			contents += "<tr><td>food</td><td>" + food + "</td></tr>";
-			contents += "<tr><td>herbs</td><td>" + herbs + "</td></tr>";
-			contents += "<tr><td>wood</td><td>" + wood + "</td></tr>";
-			contents += "<tr><td>stone</td><td>" + stone + "</td></tr>";
-			contents += "<tr><td>net worth</td><td>" + netWorth + "</td></tr>";
-			contents += "</table>";
-			document.getElementById("resources").innerHTML = contents;
+		sell : function(resource, amount, value, time) {
+			transaction = new Object();
+			transaction.resource = resource;
+			transaction.amount = amount;
+			transaction.value = value;
+			events.add(time, town.sellAction, transaction);
+		},
+		
+		sellHerbs : function() {
+			document.getElementById("status").innerHTML = "sellHerbs";
+			town.sell("herbs", 6, 4, 20);
+		},
+		
+		sellWood : function() {
+			document.getElementById("status").innerHTML = "sellWood";
+			town.sell("wood", 5, 1, 10);
+		},
+		
+		sellFood : function() {
+			document.getElementById("status").innerHTML = "sellFood";
+			town.sell("food", 10, 1, 5);
 		},
 		
 };
