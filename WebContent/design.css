@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-color: #000000;
+	margin: 0px;
+	padding: 0px;
+}
+
+div {
+	background-color: #FFFFFF;
+	margin: 5px;
+	height: auto;
+	overflow: hidden;
+}
+
+div.wrapper {
+	background-color: #000088;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+div.resources {
+	float: right;
+	width: 120px;
+}

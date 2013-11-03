@@ -4,8 +4,28 @@
 
 var town = {
 		
+		population : 0,
+		
 		init : function() {
 			resources.init();
+			population = new Array();
+			/*
+			var p;
+			p = new person();
+			person.fortitude = -1;
+			person.intuition = 1;
+			population.push(person);
+			person = new person("Roland Deschain");
+			person.fortitude = 3;
+			person.reflexes = 3;
+			person.intuition = -1;
+			population.push(person);
+			person = new person("Jake Chambers");
+			person.fortitude = 1;
+			person.reflexes = 1;
+			person.intuition = 2;
+			population.push(person);
+			*/
 			events.add(1, town.update);
 		},
 		
@@ -24,7 +44,7 @@ var town = {
 		},
 		
 		sell : function(resource, amount, value, time) {
-			transaction = new Object();
+			var transaction = new Object();
 			transaction.resource = resource;
 			transaction.amount = amount;
 			transaction.value = value;
