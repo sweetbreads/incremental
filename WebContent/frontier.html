@@ -9,7 +9,7 @@
 <script type="text/javascript" src="scripts/events.js"></script>
 <script type="text/javascript" src="scripts/town.js"></script>
 <script type="text/javascript" src="scripts/resources.js"></script>
-<script type="text/javascript" src="scripts/person.js"></script>
+<script type="text/javascript" src="scripts/objects/person.js"></script>
 
 <link rel="stylesheet" type="text/css" href="design.css">
 
@@ -29,8 +29,12 @@
 <button onclick="town.sellFood()">sell food</button>
 <button onclick="town.sellHerbs()">sell herbs</button>
 <button onclick="town.sellWood()">sell wood</button>
+<h1>Debug messages</h1>
 <p id="status">This is a test.</p>
-<p id="events">Event test.</p>
+<h1>Town state</h1>
+<p id="town">This is your town.</p>
+<h1>Event queue state</h1>
+<p id="events">Event updates go here.</p>
 
 <script type="text/javascript">
 	events.init();

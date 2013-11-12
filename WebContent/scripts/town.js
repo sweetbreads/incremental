@@ -9,24 +9,38 @@ var town = {
 		init : function() {
 			resources.init();
 			population = new Array();
-			/*
-			var p;
-			p = new person();
+			var person;
+			person = new Person("Shost Frock");
+			person.title = "Shopkeeper";
 			person.fortitude = -1;
 			person.intuition = 1;
 			population.push(person);
-			person = new person("Roland Deschain");
+			person = new Person("Roland Deschain");
+			person.title = "Gunslinger of Eld";
 			person.fortitude = 3;
 			person.reflexes = 3;
 			person.intuition = -1;
 			population.push(person);
-			person = new person("Jake Chambers");
+			person = new Person("Jake Chambers");
+			person.title = "Gunslinger of New York";
 			person.fortitude = 1;
 			person.reflexes = 1;
 			person.intuition = 2;
 			population.push(person);
-			*/
 			events.add(1, town.update);
+			resources.display();
+			town.display();
+		},
+		
+		display : function() {
+			var contents = "";
+			contents += "<table>";
+			for(var i = 0; i < population.length; i++) {
+				if(i != 0) { contents += "<tr><td colspan=\"2\"><hr></td></tr>"; }
+				contents += population[i].display();
+			}
+			contents += "</table>";
+			document.getElementById("town").innerHTML = contents;
 		},
 		
 		update : function() {

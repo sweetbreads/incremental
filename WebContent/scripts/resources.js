@@ -25,10 +25,10 @@ var resources = {
 		
 		display : function() {
 			var displayResource = ["food",
-			                   "herbs",
-			                   "wood",
-			                   "stone",
-			                   ];
+			                       "herbs",
+			                       "wood",
+			                       "stone"
+			                       ];
 			var contents = "";
 			contents += "<table border=\"0\" width=\"120px\">";
 			contents += "<tr><td align=\"right\" width=\"90px\">" + "<b>net worth</b></td>";
