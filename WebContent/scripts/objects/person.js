@@ -13,14 +13,20 @@ function Person(name) {
 		this.fortitude = 0;
 		
 		this.display = display;
-		function display() {
+		function display(index) {
 			var contents = "";
-			contents += "<tr><td width=\"150px\"><b>" + this.name + "</b></td><td>" + this.title + "</td></tr>";
+			contents += "<tr><td><b>" + this.name + "</b></td><td>" + this.title + "</td></tr>";
 			contents += "<tr><td colspan=\"2\">";
 			contents += this.displayAttribute("fortitude") + ", ";
 			contents += this.displayAttribute("reflexes") + ", ";
 			contents += this.displayAttribute("intuition") + "</td></tr>";
+			contents += "<tr><td colspan=\"2\"Abilities</td></tr>";
 			return contents;
+		}
+		
+		this.collect = collect;
+		function collect() {
+			
 		}
 		
 		this.displayAttribute = displayAttribute;
@@ -33,7 +39,6 @@ function Person(name) {
 			                  "superhuman",
 			                  ];
 			var i = this[attr] + 1;
-			document.getElementById("status").innerHTML = "PERSON DISPLAYATTR(" + attr + ") { i = " + i + "; }";
 			display += descriptor[i] + " " + attr + " (" + this[attr] + ")";
 			return(display);
 		}

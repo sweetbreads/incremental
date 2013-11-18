@@ -10,6 +10,7 @@ var resources = {
 		wood : 0,
 		stone : 0,
 		
+		/* init() - sets up the data structures. called at the beginning. duh. */
 		init : function() {
 			netWorth = 0;
 			food = 0;
@@ -45,4 +46,4 @@ var resources = {
 			document.getElementById("resources").innerHTML = contents;
 		},
 		
-}
+};
